@@ -1,6 +1,13 @@
-"use strict"
-let money = +prompt("Ваш бюджет на месяц? ", ""),
-    time = prompt("Введите дату в формате YYYY-MM-DD", "");
+"use strict";
+let money,time;
+function start(){
+    money = +prompt("Ваш бюджет на месяц? ","0");
+    while(isNaN(money) || money == null || money == ""){
+        money = +prompt("Ваш бюджет на месяц? ","0");
+    }    
+    time = prompt("Ведите дату в формате YYYY-MM-DD","");
+}
+start();
 
 let appData = {
     budget: money,
@@ -8,8 +15,9 @@ let appData = {
     optionalExpenses: {},
     income: [],
     timeData: time,
-    savings: false
+    savings: true
 };
+function shooseExpensese(){
 for (let i = 0; i < 2; i++) {
     let a = prompt("Введите обязательную строку расходов в этом месяце", ""),
         b = prompt("Во сколько обойдется?", "");
@@ -22,6 +30,20 @@ for (let i = 0; i < 2; i++) {
            i--;
     }
 }
+}
+shooseExpensese();
+
+function checkSavings(){
+    if(appData.savings == true){
+        let save = +prompt("Какова сумма накоплений","0");
+        let percent = +prompt("Под какой процент?","");
+        appData.montIncome = save/100/12 * percent;
+        alert("Доход с вашего депозита: "+appData.montIncome);
+    }
+   
+}
+checkSavings();
+
 //let i = 0;
 // do {
 //     let a = prompt("Введите обязательную строку расходов в этом месяце", ""),
@@ -49,6 +71,9 @@ for (let i = 0; i < 2; i++) {
 //     }
 //     i++;
 // } 
+
+
+
 appData.moneyPerDay = appData.budget / 30;
 alert("Ежедневный бюджет: " + appData.moneyPerDay);
 if (appData.moneyPerDay < 100) {
@@ -60,3 +85,4 @@ if (appData.moneyPerDay < 100) {
 } else {
     console.log("Произошла ошибка");
 }
+
