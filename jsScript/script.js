@@ -10,19 +10,19 @@ let appData = {
     timeData: time,
     savings: false
 };
-// for (let i = 0; i < 2; i++) {
-//     let a = prompt("Введите обязательную строку расходов в этом месяце", ""),
-//         b = prompt("Во сколько обойдется?", "");
-//     if ((typeof (a)) === 'string' && (typeof (a)) != null && (typeof (b)) != null &&
-//         a != "" && b != "" && a.length < 50) {
-//         console.log("Done");
-//         appData.expenses[a] = b;
-//     } else {
-//         console.log("bad result");
-//            i--;
-//     }
-// }
-let i = 0;
+for (let i = 0; i < 2; i++) {
+    let a = prompt("Введите обязательную строку расходов в этом месяце", ""),
+        b = prompt("Во сколько обойдется?", "");
+    if ((typeof (a)) === 'string' && (typeof (a)) != null && (typeof (b)) != null &&
+        a != "" && b != "" && a.length < 50) {
+        console.log("Done");
+        appData.expenses[a] = b;
+    } else {
+        console.log("bad result");
+           i--;
+    }
+}
+//let i = 0;
 // do {
 //     let a = prompt("Введите обязательную строку расходов в этом месяце", ""),
 //         b = +prompt("Во сколько обойдется?", "");
@@ -36,19 +36,19 @@ let i = 0;
 //     }
 //     i++;
 // } while (i < 2);
-   while(i < 2){
-    let a = prompt("Введите обязательную строку расходов в этом месяце", ""),
-        b = +prompt("Во сколько обойдется?", "");
-    if ((typeof (a)) === 'string' && (typeof (a)) != null && (typeof (b)) != null &&
-        a != "" && b != "" && a.length < 50) {
-        console.log("Done");
-        appData.expenses[a] = b;
-    } else {
-        console.log("bad result");
-        i--;
-    }
-    i++;
-} 
+//    while(i < 2){
+//     let a = prompt("Введите обязательную строку расходов в этом месяце", ""),
+//         b = +prompt("Во сколько обойдется?", "");
+//     if ((typeof (a)) === 'string' && (typeof (a)) != null && (typeof (b)) != null &&
+//         a != "" && b != "" && a.length < 50) {
+//         console.log("Done");
+//         appData.expenses[a] = b;
+//     } else {
+//         console.log("bad result");
+//         i--;
+//     }
+//     i++;
+// } 
 appData.moneyPerDay = appData.budget / 30;
 alert("Ежедневный бюджет: " + appData.moneyPerDay);
 if (appData.moneyPerDay < 100) {
